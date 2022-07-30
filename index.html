@@ -1,0 +1,37 @@
+<html>
+
+<h1>yes</h1>
+
+<script>
+let xml = new XMLHttpRequest();
+
+function POSTdata(msg) {
+xml.open('POST', 'x', true);
+xml.send(msg);
+
+}
+
+function POSTdata2(msg) {
+xml.open('POST', 'y', true);
+xml.send(msg);
+
+}
+
+function GETdata() {
+xml.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+        }
+    };
+xml.open('GET', '/time', true);
+xml.send(null);
+}
+</script>
+
+
+
+<button onclick="POSTdata('Hej');">POST</button>
+<button onclick="GETdata();">GET?</button>
+<button onclick="POSTdata2('lol');">POST2</button>
+
+</html>
